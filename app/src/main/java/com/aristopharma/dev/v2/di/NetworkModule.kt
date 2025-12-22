@@ -1,9 +1,10 @@
-package dev.rafiqulislam.projecttemplate.di
+package com.aristopharma.dev.v2.di
 
 
 
 import android.content.Context
 import com.aristopharma.core.network.NetworkFactory
+import com.aristopharma.dev.v2.features.login.data.dataSource.remote.AuthApiService
 import com.incepta.msfa.shared.data.remote.AppApiService
 import dagger.Module
 import dagger.Provides
@@ -45,4 +46,12 @@ object NetworkModule {
         )
     }
 
+    @Provides
+    @Singleton
+    fun provideAuthApiService(@ApplicationContext context: Context): AuthApiService {
+        return NetworkFactory.createService(
+            context = context,
+            serviceClass = AuthApiService::class.java,
+        )
+    }
 }

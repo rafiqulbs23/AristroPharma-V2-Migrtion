@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.aristopharma.v2.dev"
+    namespace = "com.aristopharma.dev.v2"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.aristopharma.v2.dev"
+        applicationId = "com.aristopharma.dev.v2"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -53,6 +53,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.compose.material3.material3)
     implementation(libs.androidx.navigation.common.android)
+    implementation(libs.firebase.messaging)
+    implementation(libs.play.services.auth)
+    implementation(libs.play.services.auth.api.phone)
+    implementation(libs.room.ktx)
 
     //noinspection UseTomlInstead
     testImplementation("junit:junit:4.13.2")

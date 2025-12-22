@@ -1,4 +1,4 @@
-package dev.rafiqulislam.projecttemplate.di
+package com.aristopharma.dev.v2.di
 
 import dagger.Module
 import dagger.Provides

@@ -1,4 +1,4 @@
-package com.aristopharma.v2.dev
+package com.aristopharma.dev.v2
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
@@ -7,7 +7,5 @@ import dagger.hilt.android.HiltAndroidApp
 class MyApplication() : Application() {
     override fun onCreate() {
         super.onCreate()
-
     }
-
 }

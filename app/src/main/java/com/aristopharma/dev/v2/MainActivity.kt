@@ -1,4 +1,4 @@
-package com.aristopharma.v2.dev
+package com.aristopharma.dev.v2
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,17 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import dagger.hilt.EntryPoint
+import com.aristopharma.dev.v2.navigation.AppNavGraph
+import com.aristopharma.dev.v2.ui.theme.ProjectTemplateTheme
 import dagger.hilt.android.AndroidEntryPoint
-import dev.rafiqulislam.projecttemplate.navigation.AppNavGraph
-import dev.rafiqulislam.projecttemplate.ui.theme.ProjectTemplateTheme
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +26,6 @@ class MainActivity : ComponentActivity() {
                         .background(MaterialTheme.colorScheme.background)
                 ) {
                     AppNavGraph()
-
                 }
             }
         }

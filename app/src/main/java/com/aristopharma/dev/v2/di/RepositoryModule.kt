@@ -1,5 +1,7 @@
-package com.aristopharma.core.di
+package com.aristopharma.dev.v2.di
 
+import com.aristopharma.dev.v2.features.login.data.repository.AuthRepositoryImpl
+import com.aristopharma.dev.v2.features.login.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -9,13 +11,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
+abstract class AuthRepositoryModule {
 
-/*    @Binds
+    @Binds
     @Singleton
-    abstract fun provideMovieRepository(
-        postRepositoryImpl: PostRepositoryImpl
-    ): PostsRepository*/
-
+    abstract fun provideAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
 
 }

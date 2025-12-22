@@ -150,4 +150,3 @@ abstract class BaseViewModel : ViewModel() {
         _uiEvent.value = null
     }
 }
-

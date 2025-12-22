@@ -3,7 +3,6 @@ package com.aristopharma.core.base
 import androidx.compose.material3.SnackbarDuration
 import com.aristopharma.core.data.SnackBarType
 
-
 sealed class UiEvent {
     /**
      * Shows a snackbar with a message and optional action.

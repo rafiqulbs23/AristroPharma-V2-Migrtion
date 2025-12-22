@@ -7,6 +7,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -42,6 +43,7 @@ fun BaseScreen(
     showBackButton: Boolean = true,
     showBottomBar: Boolean = false,
     topBar: (@Composable () -> Unit)? = null, // Nullable composable lambda
+    actions: @Composable RowScope.() -> Unit = {},
     isLoading: Boolean = false,
     floatingActionButton: @Composable (() -> Unit)? = null,
     content: @Composable (PaddingValues) -> Unit,
@@ -94,6 +96,7 @@ fun BaseScreen(
                                     Spacer(modifier = Modifier.width(0.dp))
                                 }
                             },
+                            actions = actions,
 //                        colors = TopAppBarDefaults.topAppBarColors(
 //                            containerColor = MaterialTheme.colorScheme.surface,
 //                            scrolledContainerColor = MaterialTheme.colorScheme.surface

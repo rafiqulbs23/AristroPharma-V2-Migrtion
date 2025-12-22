@@ -1,4 +1,4 @@
-package dev.rafiqulislam.projecttemplate.shared.data.local
+package com.aristopharma.dev.v2.shared.data.local
 
 
 import androidx.room.Entity

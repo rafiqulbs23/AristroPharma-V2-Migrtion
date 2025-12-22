@@ -1,4 +1,4 @@
-package dev.rafiqulislam.projecttemplate.navigation
+package com.aristopharma.dev.v2.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -6,9 +6,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.rafiqulislam.projecttemplate.features.home.presentation.screen.HomeScreen
-import dev.rafiqulislam.projecttemplate.features.splash.presentation.screen.SplashScreen
-
+import androidx.navigation.toRoute
+import com.aristopharma.dev.v2.features.home.presentation.screens.HomeScreen
+import com.aristopharma.dev.v2.features.splash.presentation.screens.SplashScreen
+import com.aristopharma.dev.v2.features.login.presentation.screens.SignInScreen
+import com.aristopharma.dev.v2.features.login.presentation.screens.OtpScreen
 
 
 @Composable
@@ -27,10 +29,37 @@ fun AppNavGraph(
                 SplashScreen(navController = navController)
             }
 
+            composable<SignInScreenNav> {
+                SignInScreen(
+                    navController = navController,
+                    onNavigateToDashboard = {
+                        navController.navigate(HomeScreenNav) {
+                            popUpTo(SignInScreenNav) { inclusive = true }
+                        }
+                    },
+                    navigateToOtp = { username, password ->
+                        navController.navigate(OtpScreenNav(username, password))
+                    }
+                )
+            }
+
+            composable<OtpScreenNav> { 
+                val args = it.toRoute<OtpScreenNav>()
+                OtpScreen(
+                    onLoginSuccess = {
+                        navController.navigate(HomeScreenNav) {
+                            popUpTo(SignInScreenNav) { inclusive = true }
+                        }
+                    },
+                    username = args.username,
+                    password = args.password,
+                    navController = navController
+                ) 
+            }
+
             composable<HomeScreenNav> { HomeScreen(navController) }
 
         }
 
     }
 }
-

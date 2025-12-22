@@ -3,7 +3,7 @@ package com.aristopharma.core.network
 import android.content.Context
 import com.google.gson.GsonBuilder
 import com.aristopharma.core.BuildConfig
-import com.aristopharma.core.BuildConfig.BASE_URL
+import com.aristopharma.core.utils.BASE_URL
 import com.aristopharma.core.utils.CoreConstant
 import com.aristopharma.core.utils.DataStoreManager
 import kotlinx.coroutines.runBlocking

@@ -1,13 +1,14 @@
-package dev.rafiqulislam.projecttemplate.di
+package com.aristopharma.dev.v2.di
 
 import android.content.Context
 import androidx.room.Room
+import com.aristopharma.dev.v2.features.login.data.dataSource.local.LoginDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.rafiqulislam.projecttemplate.shared.data.local.AppDatabase
+import com.aristopharma.dev.v2.shared.data.local.AppDatabase
 import javax.inject.Singleton
 
 @Module
@@ -24,9 +25,9 @@ object DatabaseModule {
         ).build()
     }
 
-/*    @Provides
+    @Provides
     @Singleton
-    fun providePostDao(database: AppDatabase): PostDao {
-        return database.postDao()
-    }*/
+    fun provideLoginDao(database: AppDatabase): LoginDao {
+        return database.loginDao()
+    }
 }

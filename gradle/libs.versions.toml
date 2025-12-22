@@ -34,6 +34,8 @@ navigationRuntimeAndroid = "2.9.4"
 datastore = "1.1.7"
 graphicsShape = "1.0.1"
 navigationCommonAndroid = "2.9.4"
+firebaseMessagingKtx = "25.0.1"
+roomKtxVersion = "2.8.4"
 
 
 [libraries]
@@ -85,6 +87,10 @@ graphics-shape = { module = "androidx.graphics:graphics-shapes", version.ref = "
 androidx-navigation-common-android = { group = "androidx.navigation", name = "navigation-common-android", version.ref = "navigationCommonAndroid" }
 
 accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version = "0.34.0" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessagingKtx" }
+play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version = "21.3.0" }
+play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-services-auth-api-phone", version = "18.1.0" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtxVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -20,10 +20,14 @@ android {
 
     buildTypes {
         debug{
+            buildConfigField("Boolean", "ENABLE_BYPASS_OTP", "true")
+            buildConfigField("Boolean", "IS_AUTOMIC_OTP_ENABLE", "true")
             buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
         release {
             isMinifyEnabled = false
+            buildConfigField("Boolean", "ENABLE_BYPASS_OTP", "true")
+            buildConfigField("Boolean", "IS_AUTOMIC_OTP_ENABLE", "true")
             buildConfigField("String", "BASE_URL", "\"https://dev.inceptapharma.com:5004/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
