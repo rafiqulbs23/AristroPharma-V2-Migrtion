@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Project Template"
+rootProject.name = "Aristopharma"
 include(":app")
 include(":core")

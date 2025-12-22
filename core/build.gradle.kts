@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.rafiqulislam.core"
+    namespace = "com.aristopharma.core"
     compileSdk = 36
 
     defaultConfig {

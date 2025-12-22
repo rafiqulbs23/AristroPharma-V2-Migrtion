@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.rafiqulislam.projecttemplate"
+    namespace = "com.aristopharma.v2.dev"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "dev.rafiqulislam.projecttemplate"
+        applicationId = "com.aristopharma.v2.dev"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

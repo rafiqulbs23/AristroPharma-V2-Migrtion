@@ -1,4 +1,4 @@
-package dev.rafiqulislam.core
+package com.aristopharma.core
 
 import org.junit.Test
 
