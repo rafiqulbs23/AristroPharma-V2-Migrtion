@@ -7,7 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.aristopharma.dev.v2.features.home.presentation.screens.HomeScreen
+import com.aristopharma.dev.v2.features.dashboard.presentation.screens.DashboardScreen
+
 import com.aristopharma.dev.v2.features.splash.presentation.screens.SplashScreen
 import com.aristopharma.dev.v2.features.login.presentation.screens.SignInScreen
 import com.aristopharma.dev.v2.features.login.presentation.screens.OtpScreen
@@ -33,7 +34,7 @@ fun AppNavGraph(
                 SignInScreen(
                     navController = navController,
                     onNavigateToDashboard = {
-                        navController.navigate(HomeScreenNav) {
+                        navController.navigate(DashboardScreenNav) {
                             popUpTo(SignInScreenNav) { inclusive = true }
                         }
                     },
@@ -47,7 +48,7 @@ fun AppNavGraph(
                 val args = it.toRoute<OtpScreenNav>()
                 OtpScreen(
                     onLoginSuccess = {
-                        navController.navigate(HomeScreenNav) {
+                        navController.navigate(DashboardScreenNav) {
                             popUpTo(SignInScreenNav) { inclusive = true }
                         }
                     },
@@ -57,7 +58,7 @@ fun AppNavGraph(
                 ) 
             }
 
-            composable<HomeScreenNav> { HomeScreen(navController) }
+            composable<DashboardScreenNav> { DashboardScreen(navController) }
 
         }
 

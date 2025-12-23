@@ -1,0 +1,78 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:preBuild UP-TO-DATE
+> Task :core:preDebugBuild UP-TO-DATE
+> Task :core:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :core:processDebugNavigationResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :core:generateDebugResValues UP-TO-DATE
+> Task :core:generateDebugResources UP-TO-DATE
+> Task :core:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :core:extractDeepLinksDebug UP-TO-DATE
+> Task :core:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :core:compileDebugLibraryResources UP-TO-DATE
+> Task :core:parseDebugLocalResources UP-TO-DATE
+> Task :core:generateDebugRFile UP-TO-DATE
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:generateDebugBuildConfig UP-TO-DATE
+> Task :core:kspDebugKotlin UP-TO-DATE
+> Task :app:processDebugResources FAILED
+
+> Task :core:compileDebugKotlin
+w: file:///Users/bs0952/My%20Working/unipet/new%20Aristro/core/src/main/java/com/aristopharma/core/utils/DataStoreManager.kt:13:44 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:processDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask$TaskAction
+   > Android resource linking failed
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_dashboard.xml:6: error: resource color/blue_grey_100 (aka com.aristopharma.dev.v2:color/blue_grey_100) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_dashboard.xml:22: error: resource color/blue_grey_50 (aka com.aristopharma.dev.v2:color/blue_grey_50) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_dashboard.xml:39: error: resource color/blue_grey_300 (aka com.aristopharma.dev.v2:color/blue_grey_300) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_dashboard.xml:57: error: resource color/blue_100 (aka com.aristopharma.dev.v2:color/blue_100) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_dashboard.xml:74: error: resource color/bg_standard_white (aka com.aristopharma.dev.v2:color/bg_standard_white) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_orange_gradient.xml:11: error: resource color/primary (aka com.aristopharma.dev.v2:color/primary) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_toolbar_dashboard.xml:22: error: resource color/primary (aka com.aristopharma.dev.v2:color/primary) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_toolbar_dashboard.xml:39: error: resource color/deep_orange_500 (aka com.aristopharma.dev.v2:color/deep_orange_500) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_toolbar_dashboard.xml:56: error: resource color/deep_orange_200 (aka com.aristopharma.dev.v2:color/deep_orange_200) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/bg_toolbar_dashboard.xml:90: error: resource color/primary (aka com.aristopharma.dev.v2:color/primary) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_account_small.xml:6: error: resource attr/colorControlNormal (aka com.aristopharma.dev.v2:attr/colorControlNormal) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_account_small.xml:6: error: resource dimen/_12sdp (aka com.aristopharma.dev.v2:dimen/_12sdp) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_account_small.xml:6: error: resource dimen/_12sdp (aka com.aristopharma.dev.v2:dimen/_12sdp) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_arrow_back.xml:7: error: resource attr/colorControlNormal (aka com.aristopharma.dev.v2:attr/colorControlNormal) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_back.xml:7: error: resource attr/colorControlNormal (aka com.aristopharma.dev.v2:attr/colorControlNormal) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_calendar.xml:6: error: resource attr/colorControlNormal (aka com.aristopharma.dev.v2:attr/colorControlNormal) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_calendar.xml:6: error: resource dimen/font_16x (aka com.aristopharma.dev.v2:dimen/font_16x) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_calendar.xml:6: error: resource dimen/font_16x (aka com.aristopharma.dev.v2:dimen/font_16x) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_check_circle.xml:8: error: resource color/green_400 (aka com.aristopharma.dev.v2:color/green_400) not found.
+     com.aristopharma.dev.v2.app-main-60:/drawable/ic_leave_image.xml:6: error: resource attr/colorControlNormal (aka com.aristopharma.dev.v2:attr/colorControlNormal) not found.
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 24s
+28 actionable tasks: 2 executed, 26 up-to-date

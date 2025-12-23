@@ -6,7 +6,7 @@ import com.aristopharma.core.BuildConfig
 import com.aristopharma.dev.v2.features.login.domain.model.OtpEvent
 import com.aristopharma.dev.v2.features.login.domain.model.OtpUiState
 import com.aristopharma.dev.v2.features.login.domain.repository.AuthRepository
-import com.aristopharma.v2.feature.auth.data.model.LoginModel
+import com.aristopharma.dev.v2.features.login.data.model.LoginModel
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -101,4 +101,8 @@ dependencies {
 
     //Shape
     implementation (libs.graphics.shape)
+
+    // Scalable DP/SP
+    implementation(libs.sdp.android)
+    implementation(libs.ssp.android)
 }

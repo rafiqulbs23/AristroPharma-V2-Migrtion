@@ -23,7 +23,7 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.aristopharma.dev.v2.features.splash.domain.model.SplashUiState
 import com.aristopharma.dev.v2.features.splash.presentation.viewModel.SplashViewModel
-import com.aristopharma.dev.v2.navigation.HomeScreenNav
+import com.aristopharma.dev.v2.navigation.DashboardScreenNav
 import com.aristopharma.dev.v2.navigation.SignInScreenNav
 import com.aristopharma.dev.v2.R
 
@@ -38,7 +38,7 @@ fun SplashScreen(
     LaunchedEffect(uiState) {
         when (uiState) {
             is SplashUiState.NavigateToHome -> {
-                navController.navigate(HomeScreenNav) {
+                navController.navigate(DashboardScreenNav) {
                     popUpTo(navController.graph.startDestinationId) { inclusive = true }
                 }
             }

@@ -16,7 +16,7 @@
 
 package com.aristopharma.dev.v2.features.login.domain.repository
 
-import com.aristopharma.v2.feature.auth.data.model.LoginModel
+import com.aristopharma.dev.v2.features.login.data.model.LoginModel
 import com.aristopharma.v2.feature.auth.data.model.LoginPostModel
 import com.aristopharma.dev.v2.features.login.data.model.LoginResponseModel
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationRequest

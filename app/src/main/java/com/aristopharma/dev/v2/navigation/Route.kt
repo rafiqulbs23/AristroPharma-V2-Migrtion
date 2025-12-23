@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 object SplashScreenNav
 
 @Serializable
-object HomeScreenNav
+object DashboardScreenNav
 
 @Serializable
 object SignInScreenNav

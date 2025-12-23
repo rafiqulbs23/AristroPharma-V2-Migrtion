@@ -54,4 +54,13 @@ object NetworkModule {
             serviceClass = AuthApiService::class.java,
         )
     }
+
+    @Provides
+    @Singleton
+    fun provideDashboardService(@ApplicationContext context: Context): com.aristopharma.dev.v2.features.dashboard.data.remote.DashboardService {
+        return NetworkFactory.createService(
+            context = context,
+            serviceClass = com.aristopharma.dev.v2.features.dashboard.data.remote.DashboardService::class.java,
+        )
+    }
 }

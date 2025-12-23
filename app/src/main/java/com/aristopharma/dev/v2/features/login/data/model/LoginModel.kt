@@ -1,4 +1,4 @@
-package com.aristopharma.v2.feature.auth.data.model
+package com.aristopharma.dev.v2.features.login.data.model
 
 import kotlinx.serialization.Serializable
 
@@ -19,7 +19,7 @@ data class LoginModel(
     val refreshToken: String = "",
     val otp: String = "",
     val isSignedUp: Boolean = false,
-    val isLoggedIn: Boolean = false,
+    var isLoggedIn: Boolean = false,
     val isFirstSync: Boolean = false,
     val isFirstLogin: Boolean = false,
     val userRoleType: String = "",

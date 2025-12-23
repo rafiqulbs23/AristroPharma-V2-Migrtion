@@ -36,7 +36,8 @@ graphicsShape = "1.0.1"
 navigationCommonAndroid = "2.9.4"
 firebaseMessagingKtx = "25.0.1"
 roomKtxVersion = "2.8.4"
-
+sdp = "1.1.1"
+ssp = "1.1.1"
 
 [libraries]
 androidx-compose-material3-material3 = { module = "androidx.compose.material3:material3" }
@@ -91,6 +92,8 @@ firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging
 play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version = "21.3.0" }
 play-services-auth-api-phone = { group = "com.google.android.gms", name = "play-services-auth-api-phone", version = "18.1.0" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtxVersion" }
+sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdp" }
+ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "ssp" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

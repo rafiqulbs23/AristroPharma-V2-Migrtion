@@ -16,9 +16,7 @@
 
 package com.aristopharma.dev.v2.features.login.presentation.viewModel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.util.copy
 import com.aristopharma.core.BuildConfig
 import com.aristopharma.core.base.BaseViewModel
 import com.aristopharma.core.utils.OneTimeEvent
@@ -27,7 +25,7 @@ import com.aristopharma.dev.v2.features.login.domain.model.SignInEvent
 import com.aristopharma.dev.v2.features.login.domain.model.SignInState
 import com.aristopharma.dev.v2.features.login.domain.repository.AuthRepository
 
-import com.aristopharma.v2.feature.auth.data.model.LoginModel
+import com.aristopharma.dev.v2.features.login.data.model.LoginModel
 import com.aristopharma.v2.feature.auth.data.model.LoginPostModel
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -36,7 +34,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.getAndUpdate
 import javax.inject.Inject
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch

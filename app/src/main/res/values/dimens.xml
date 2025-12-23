@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="space_1x">@dimen/_1sdp</dimen>
+    <dimen name="space_4x">@dimen/_4sdp</dimen>
+    <dimen name="space_8x">@dimen/_8sdp</dimen>
+    <dimen name="space_16x">@dimen/_16sdp</dimen>
+    <dimen name="space_12x">@dimen/_12sdp</dimen>
+    <dimen name="space_24x">@dimen/_24sdp</dimen>
+    <dimen name="space_32x">@dimen/_32sdp</dimen>
+    <dimen name="space_48x">@dimen/_48sdp</dimen>
+    <dimen name="space_64x">@dimen/_64sdp</dimen>
+    <dimen name="space_96x">@dimen/_96sdp</dimen>
+
+    <dimen name="font_8x">@dimen/_8ssp</dimen>
+    <dimen name="font_10x">@dimen/_10ssp</dimen>
+    <dimen name="font_12x">@dimen/_12ssp</dimen>
+    <dimen name="font_16x">@dimen/_16ssp</dimen>
+    <dimen name="font_24x">@dimen/_24ssp</dimen>
+    <dimen name="font_32x">@dimen/_32ssp</dimen>
+
+    <dimen name="image_view_width">100dp</dimen>
+    <dimen name="image_view_height">100dp</dimen>
+    <dimen name="image_details_height">300dp</dimen>
+
+    <dimen name="spacing_large">15dp</dimen>
+    <dimen name="spacing_mlarge">20dp</dimen>
+    <dimen name="spacing_mxlarge">25dp</dimen>
+
+    <dimen name="dialog_basic_height">400dp</dimen>
+    <dimen name="dialog_long_height">500dp</dimen>
+    <dimen name="dialog_flash_height">350dp</dimen>
+
+    <dimen name="label_drawable_padding">@dimen/space_8x</dimen>
+    <dimen name="label_no_icon_margin_aligned">@dimen/_26sdp</dimen>
+
+
+    <dimen name="headerTextSize">30sp</dimen>
+    <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="loginCardRadius">20dp</dimen>
+    <dimen name="loginViewsMargin">20dp</dimen>
+
+    <dimen name="signup_text_margin_top">10dp</dimen>
+    <dimen name="Card.Inner">@dimen/space_8x</dimen>
+    <dimen name="RecyclerView.Padding">@dimen/space_4x</dimen>
+
+
+
+</resources>

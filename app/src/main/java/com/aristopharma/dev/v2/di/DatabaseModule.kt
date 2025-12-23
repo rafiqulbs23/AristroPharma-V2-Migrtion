@@ -9,6 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import com.aristopharma.dev.v2.shared.data.local.AppDatabase
+import com.aristopharma.dev.v2.features.dashboard.data.dataSource.local.MenuPermissionDao
 import javax.inject.Singleton
 
 @Module
@@ -22,12 +23,19 @@ object DatabaseModule {
             context,
             AppDatabase::class.java,
             "app_database"
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides
     @Singleton
     fun provideLoginDao(database: AppDatabase): LoginDao {
         return database.loginDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMenuPermissionDao(database: AppDatabase): MenuPermissionDao {
+        return database.menuPermissionDao()
     }
 }

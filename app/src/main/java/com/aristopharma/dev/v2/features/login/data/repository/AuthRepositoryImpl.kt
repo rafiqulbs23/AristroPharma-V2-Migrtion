@@ -23,11 +23,14 @@ import com.aristopharma.dev.v2.features.login.data.dataSource.local.toModel
 import com.aristopharma.dev.v2.features.login.data.dataSource.remote.AuthApiService
 import com.aristopharma.dev.v2.features.login.data.dataSource.remote.UpdateFcmTokenRequest
 import com.aristopharma.dev.v2.features.login.domain.repository.AuthRepository
-import com.aristopharma.v2.feature.auth.data.model.LoginModel
+import com.aristopharma.dev.v2.features.login.data.model.LoginModel
 import com.aristopharma.v2.feature.auth.data.model.LoginPostModel
 import com.aristopharma.dev.v2.features.login.data.model.LoginResponseModel
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationRequest
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationResponse
+import com.aristopharma.core.data.repository.TokenRepository
+import com.aristopharma.dev.v2.core.utils.sharedPref.Prefs
+import com.aristopharma.dev.v2.features.dashboard.domain.model.DashboardSummary
 import javax.inject.Inject
 
 /**
@@ -35,10 +38,14 @@ import javax.inject.Inject
  *
  * @param loginDao The local data source for storing user data.
  * @param apiService The remote data source for authentication operations.
+ * @param prefs The shared preferences for application-wide session data.
+ * @param tokenRepository The core repository for managing auth tokens and device-level session data.
  */
 class AuthRepositoryImpl @Inject constructor(
     private val loginDao: LoginDao,
     private val apiService: AuthApiService,
+    private val prefs: Prefs,
+    private val tokenRepository: TokenRepository
 ) : AuthRepository {
 
     override suspend fun login(model: LoginPostModel): Result<LoginResponseModel> {
@@ -120,7 +127,31 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun saveLoginModel(loginModel: LoginModel) {
         try {
+            // 1. Save to Room (Database)
             loginDao.save(loginModel.toEntity())
+            
+            // 2. Sync with Prefs (SharedPreferences) - For features relying on legacy SharedPreferences
+            prefs.loginModel = loginModel
+            if (loginModel.empId.isNotEmpty()) {
+                prefs.empId = loginModel.empId
+            }
+            
+            // 3. Sync with TokenRepository (DataStoreManager) - Critical for NetworkFactory token interceptor
+            if (loginModel.accessToken.isNotEmpty()) {
+                tokenRepository.saveToken(loginModel.accessToken)
+            }
+            if (loginModel.empId.isNotEmpty()) {
+                tokenRepository.saveEmpId(loginModel.empId)
+            }
+            tokenRepository.setLoggedOut(!loginModel.isLoggedIn)
+            
+            // 4. Initialize DashboardSummary if it's the first time or missing critical info
+            if (prefs.dashboardSummaryModel.employeeId.isEmpty() && loginModel.empId.isNotEmpty()) {
+                prefs.dashboardSummaryModel = prefs.dashboardSummaryModel.copy(
+                    employeeName = loginModel.empName,
+                    employeeId = loginModel.empId
+                )
+            }
         } catch (e: Exception) {
             throw IllegalStateException("Failed to save login model", e)
         }
@@ -137,6 +168,8 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun clearLoginModel() {
         try {
             loginDao.clear()
+            tokenRepository.clearToken()
+            tokenRepository.setLoggedOut(true)
         } catch (e: Exception) {
             throw IllegalStateException("Failed to clear login model", e)
         }
