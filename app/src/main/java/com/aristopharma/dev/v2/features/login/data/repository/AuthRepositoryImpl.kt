@@ -21,6 +21,7 @@ import com.aristopharma.dev.v2.features.login.data.dataSource.local.LoginDao
 import com.aristopharma.dev.v2.features.login.data.dataSource.local.toEntity
 import com.aristopharma.dev.v2.features.login.data.dataSource.local.toModel
 import com.aristopharma.dev.v2.features.login.data.dataSource.remote.AuthApiService
+import com.aristopharma.dev.v2.features.login.data.dataSource.remote.UpdateFcmTokenRequest
 import com.aristopharma.dev.v2.features.login.domain.repository.AuthRepository
 import com.aristopharma.v2.feature.auth.data.model.LoginModel
 import com.aristopharma.v2.feature.auth.data.model.LoginPostModel
@@ -146,6 +147,19 @@ class AuthRepositoryImpl @Inject constructor(
             loginDao.getLogin()?.isLoggedIn ?: false
         } catch (e: Exception) {
             false
+        }
+    }
+
+    override suspend fun updateFcmToken(token: String): Result<Unit> {
+        return try {
+            val response = apiService.updateFcmToken(UpdateFcmTokenRequest(fcmToken = token))
+            if (response.statusCode in 200..299) {
+                Result.success(Unit)
+            } else {
+                Result.failure(Exception(response.message ?: "Failed to update FCM token"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
         }
     }
 }

@@ -69,6 +69,14 @@ interface AuthRepository {
      * @return true if user is logged in, false otherwise.
      */
     suspend fun isLoggedIn(): Boolean
+
+    /**
+     * Update FCM token on the server.
+     *
+     * @param token The new FCM token.
+     * @return A [Result] representing the update operation result.
+     */
+    suspend fun updateFcmToken(token: String): Result<Unit>
 }
 
 

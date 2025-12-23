@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.aristopharma.dev.v2.core.utils.FcmTokenHelper
+import android.util.Log
 
 @HiltViewModel
 class HomeScreenViewModel @Inject constructor(
@@ -19,6 +21,20 @@ class HomeScreenViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState = _uiState.asStateFlow()
+
+    init {
+        updateFcmToken()
+    }
+
+    private fun updateFcmToken() {
+        viewModelScope.launch {
+            FcmTokenHelper.getFcmToken()?.let { token ->
+                authRepository.updateFcmToken(token).onFailure { error ->
+                    Log.e("HomeScreenViewModel", "Failed to update FCM token", error)
+                }
+            }
+        }
+    }
 
     fun onEvent(event: HomeUiEvent) {
         when (event) {

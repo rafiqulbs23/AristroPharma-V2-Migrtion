@@ -40,6 +40,7 @@ import kotlinx.coroutines.flow.getAndUpdate
 import javax.inject.Inject
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import com.aristopharma.dev.v2.core.utils.FcmTokenHelper
 
 
 /**
@@ -259,8 +260,7 @@ class SignInViewModel @Inject constructor(
      * Retrieves FCM token using FcmTokenManager from notification feature.
      */
     private suspend fun getFCMToken(): String? {
-        // TODO: Implement actual FCM token retrieval
-        return "ffgfgjfgjfjffjgfjgfjfjf"
+        return FcmTokenHelper.getFcmToken()
     }
 
     /**

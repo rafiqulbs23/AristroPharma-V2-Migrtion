@@ -21,6 +21,7 @@ import com.aristopharma.v2.feature.auth.data.model.LoginPostModel
 import com.aristopharma.dev.v2.features.login.data.model.LoginResponseModel
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationRequest
 import com.aristopharma.v2.feature.auth.data.model.OTPValidationResponse
+import kotlinx.serialization.Serializable
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -49,5 +50,21 @@ interface AuthApiService {
     suspend fun validateOTP(
         @Body model: OTPValidationRequest,
     ): BaseResponse<OTPValidationResponse>
+
+    /**
+     * Update FCM token for the authenticated user.
+     *
+     * @param model The request model containing the new FCM token.
+     * @return A [BaseResponse] indicating success or failure.
+     */
+    @POST("/api/v1/app/auth/updateFcmToken")
+    suspend fun updateFcmToken(
+        @Body model: UpdateFcmTokenRequest,
+    ): BaseResponse<Unit>
 }
+
+@Serializable
+data class UpdateFcmTokenRequest(
+    val fcmToken: String
+)
 
